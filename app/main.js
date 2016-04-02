@@ -19,7 +19,7 @@ router.start({
     data() {
         return {
             loading: true,
-            quacks: [],
+            ducks: [],
             hatch: null,
         }
     },
@@ -60,6 +60,7 @@ router.start({
         },
         make_quack(key){
             const [skin, quack] = this.hatch(key)
+            const position      = {x: randomX(), y: randomY()}
             if(!quack.paused || quack.currentTime){
                 quack.pause()
                 quack.currentTime = 0
@@ -67,14 +68,13 @@ router.start({
             } else {
                 quack.play()
             }
-            this.quacks.push({
+            this.ducks.push({
                 key,
                 skin,
-                x: randomX(),
-                y: randomY(),
+                position,
             })
             setTimeout( () => {
-                this.quacks.shift()
+                this.ducks.shift()
             }, 400)
         },
     },

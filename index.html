@@ -26,10 +26,12 @@
 	</head>
 	<body v-on:keydown="send_quack($event)">
 		<div id="quacks-lock" class="main" v-cloak>
-            <template v-for="(index, quack) in quacks" track-by="$index">
-				<div class="quack" :style="{top: quack.y, left: quack.x}">
-					<duck></duck>
-					<h1>{{ quack.key }}</h1>
+            <template v-for="(index, duck) in ducks" track-by="$index">
+				<div class="quack" :style="{top: duck.position.y, left: duck.position.x}">
+					<duck
+                        >
+                    </duck>
+					<h1>{{ duck.key }}</h1>
 				</div>
 			</template>
 		</div>

@@ -1,7 +1,7 @@
-import './duck.css!';
-import Vue from 'vue';
+import './duck.css!'
+import Vue from 'vue'
 
-import ducks from './ducks/ducks';
+import ducks from './ducks/ducks'
 
 export default Vue.extend({
     data(){
@@ -9,7 +9,7 @@ export default Vue.extend({
 
         }
     },
-    created: function(){
-        this.$options.template = ducks[Math.floor(Math.random()*ducks.length)];
-    }
-});
+    created() {
+        this.$options.template = ducks[Math.floor(Math.random()*ducks.length)]
+    },
+})
