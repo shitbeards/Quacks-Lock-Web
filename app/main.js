@@ -42,7 +42,7 @@ router.start({
         this.ws.onopen = (evt) => {
         }
         this.ws.onmessage = (evt) => {
-            var data = JSON.parse(evt.data)
+            const data = JSON.parse(evt.data)
             this.make_quack(data.Key)
             this.count = data.Quacks
         }
@@ -55,7 +55,7 @@ router.start({
         tap_quack() {
             this.ws.send('!')
         },
-        send_quack(evt){
+        send_quack(evt) {
             let x = evt.code.split('Key')
             if(x.length > 1) this.ws.send(x[1])
             else {
@@ -63,24 +63,16 @@ router.start({
                 if(x.length > 1) this.ws.send(x[1])
             }
         },
-        make_quack(key){
-            const [skin, quack] = this.hatch(key)
-            const position      = {x: randomX(), y: randomY()}
-            if(!quack.paused || quack.currentTime){
-                quack.pause()
-                quack.currentTime = 0
-                quack.play()
-            } else {
-                quack.play()
-            }
-            this.ducks.push({
-                key,
-                skin,
-                position,
-            })
-            setTimeout( () => {
-                this.ducks.shift()
-            }, 400)
+        make_quack(key) {
+            const duck    = this.hatch(key)
+            duck.position = {x: randomX(), y: randomY()}
+
+            duck.quack.pause()
+            duck.quack.currentTime = 0
+            duck.quack.play()
+
+            this.ducks.push(duck)
+            setTimeout(() => this.ducks.shift(), 400)
         },
     },
 }, 'body')
