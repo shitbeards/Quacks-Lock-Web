@@ -27,6 +27,7 @@
 	<body v-on:keydown="send_quack($event)">
 		<div id="quacks-lock" class="main" v-cloak>
             <div v-for="(index, quack) in quacks" track-by="$index" track class="quack">
+				<duck></duck>
 				<h1>{{ quack }}</h1>
 			</div>
 		</div>

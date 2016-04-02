@@ -4,6 +4,8 @@ import router from './router'
 
 import {ws_url} from 'consts.js'
 
+import duck from 'app/components/duck/duck';
+
 router.start({
     data() {
         return {
@@ -50,4 +52,7 @@ router.start({
             }, 400);
         }
     },
+    components: {
+        duck: duck
+    }
 }, 'body')
