@@ -5,4 +5,4 @@ build:
 	uglifyjs built/app.js -o built/app.min.js
 	html-dist index.html --remove-all --minify --insert app.min.js -o built/index.html
 deploy:
-	aws s3 sync --profile shitbeards built/ s3://com-shitbeards-quackslock
+	aws s3 sync built/ s3://com-shitbeards-quackslock
