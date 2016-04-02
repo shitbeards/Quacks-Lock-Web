@@ -1,5 +1,5 @@
-import boba_duck from './boba-duck.svg!text';
+// import boba_duck from './boba-duck.svg!text';
 
 export default [
-    boba_duck
+    "<div></div>"
 ]

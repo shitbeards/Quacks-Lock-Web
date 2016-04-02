@@ -46,6 +46,15 @@ router.start({
             }
         },
         make_quack(key){
+            var test = document.getElementsByTagName("audio")[Math.floor(Math.random()*31)];
+            if(!test.paused || test.currentTime){
+                test.pause()
+                test.currentTime = 0
+                test.play()
+            } else {
+                test.play()
+            }
+
             this.quacks.push(key);
             setTimeout( () => {
                 this.quacks.shift();
