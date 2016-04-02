@@ -5,7 +5,7 @@ import router from './router'
 import {ws_url} from 'consts.js'
 import {incubator} from 'app/utils/incubator'
 
-import duck from 'app/components/duck/duck';
+import duck from 'app/components/duck/duck'
 
 function randomX(){
     return Math.floor( Math.random() * (window.innerWidth-30) ) + 'px'
@@ -37,21 +37,21 @@ router.start({
 
         //Set up websocket
         this.ws = new WebSocket(ws_url)
-        this.ws.onopen = (evt)=>{
-            console.log('hello');
+        this.ws.onopen = (evt) => {
+            console.log('hello')
         }
-        this.ws.onmessage = (evt)=>{
+        this.ws.onmessage = (evt) => {
             this.make_quack(evt.data)
         }
-        this.ws.onclose = (evt)=>{
-            console.log('Goodbye');
+        this.ws.onclose = (evt) => {
+            console.log('Goodbye')
         }
 
         this.loading = false
     },
     methods: {
         send_quack(evt){
-            var x = evt.code.split('Key')
+            let x = evt.code.split('Key')
             if(x.length > 1) this.ws.send(x[1])
             else {
                 x = evt.code.split('Digit')
@@ -68,16 +68,17 @@ router.start({
                 quack.play()
             }
             this.quacks.push({
-                key: key,
+                key,
+                skin,
                 x: randomX(),
-                y: randomY()
-            });
+                y: randomY(),
+            })
             setTimeout( () => {
-                this.quacks.shift();
-            }, 400);
-        }
+                this.quacks.shift()
+            }, 400)
+        },
     },
     components: {
-        duck: duck
-    }
+        duck,
+    },
 }, 'body')
