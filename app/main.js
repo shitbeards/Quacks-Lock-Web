@@ -3,6 +3,7 @@ import './main.css!'
 import router from './router'
 
 import {ws_url} from 'consts.js'
+import {incubator} from 'app/utils/incubator'
 
 import duck from 'app/components/duck/duck';
 
@@ -18,7 +19,8 @@ router.start({
     data() {
         return {
             loading: true,
-            quacks: []
+            quacks: [],
+            hatch: null,
         }
     },
     computed: {
@@ -29,6 +31,9 @@ router.start({
     },
     ready() {
         window.app = this
+
+        const quacks = document.getElementsByTagName("audio")
+        this.hatch   = incubator([], quacks)
 
         //Set up websocket
         this.ws = new WebSocket(ws_url)
@@ -54,13 +59,13 @@ router.start({
             }
         },
         make_quack(key){
-            var test = document.getElementsByTagName("audio")[Math.floor(Math.random()*31)];
-            if(!test.paused || test.currentTime){
-                test.pause()
-                test.currentTime = 0
-                test.play()
+            const [skin, quack] = this.hatch(key)
+            if(!quack.paused || quack.currentTime){
+                quack.pause()
+                quack.currentTime = 0
+                quack.play()
             } else {
-                test.play()
+                quack.play()
             }
             this.quacks.push({
                 key: key,
