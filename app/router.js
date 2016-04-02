@@ -7,6 +7,8 @@ import {debug} from 'consts'
 Vue.use(VueRouter)
 Vue.config.debug = debug
 
-const router = new VueRouter()
+const router = new VueRouter({
+    history: true
+})
 
 export default router
