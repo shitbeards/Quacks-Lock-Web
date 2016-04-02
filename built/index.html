@@ -4,4 +4,4 @@
 
 			[v-cloak].loading {
 				display: block;
-			}</style></head><body><div id="quacks-lock" class="main" v-cloak="">quack<router-view></router-view></div><script src="app.min.js"></script></body></html>
+			}</style></head><body v-on:keydown="send_quack($event)"><div id="quacks-lock" class="main" v-cloak=""><div v-for="(index, quack) in quacks" track-by="$index" track="" class="quack"><h1>{{ quack }}</h1></div></div><script src="app.min.js"></script></body></html>

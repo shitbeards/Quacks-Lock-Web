@@ -9887,57 +9887,94 @@ $__System.register('2e', [], function (_export) {
 
       _export('debug', debug);
 
-      ws_url = 'ws://localhost:8888/websocket';
+      ws_url = 'ws://quacks-lock.herokuapp.com/ws';
 
       _export('ws_url', ws_url);
     }
   };
 });
 $__System.register('2f', ['8', '2d', '2e'], function (_export) {
-  'use strict';
-
-  var Vue, VueRouter, debug, router;
-  return {
-    setters: [function (_) {
-      Vue = _['default'];
-    }, function (_d) {
-      VueRouter = _d['default'];
-    }, function (_e) {
-      debug = _e.debug;
-    }],
-    execute: function () {
-
-      Vue.use(VueRouter);
-      Vue.config.debug = debug;
-
-      router = new VueRouter();
-
-      _export('default', router);
-    }
-  };
-});
-$__System.register('1', ['2', '2f'], function (_export) {
     'use strict';
 
-    var router;
+    var Vue, VueRouter, debug, router;
+    return {
+        setters: [function (_) {
+            Vue = _['default'];
+        }, function (_d) {
+            VueRouter = _d['default'];
+        }, function (_e) {
+            debug = _e.debug;
+        }],
+        execute: function () {
+
+            Vue.use(VueRouter);
+            Vue.config.debug = debug;
+
+            router = new VueRouter({
+                history: true
+            });
+
+            _export('default', router);
+        }
+    };
+});
+$__System.register('1', ['2', '2f', '2e'], function (_export) {
+    'use strict';
+
+    var router, ws_url;
     return {
         setters: [function (_) {}, function (_f) {
             router = _f['default'];
+        }, function (_e) {
+            ws_url = _e.ws_url;
         }],
         execute: function () {
 
             router.start({
                 data: function data() {
                     return {
-                        loading: true
+                        loading: true,
+                        quacks: []
                     };
                 },
                 computed: {},
                 created: function created() {},
                 ready: function ready() {
+                    var _this = this;
+
+                    window.app = this;
+
+                    //Set up websocket
+                    this.ws = new WebSocket(ws_url);
+                    this.ws.onopen = function (evt) {
+                        console.log('hello');
+                    };
+                    this.ws.onmessage = function (evt) {
+                        _this.make_quack(evt.data);
+                    };
+                    this.ws.onclose = function (evt) {
+                        console.log('Goodbye');
+                    };
+
                     this.loading = false;
                 },
-                methods: {}
+                methods: {
+                    send_quack: function send_quack(evt) {
+                        var x = evt.code.split('Key');
+                        if (x.length > 1) this.ws.send(x[1]);else {
+                            x = evt.code.split('Digit');
+                            if (x.length > 1) this.ws.send(x[1]);
+                        }
+                    },
+                    make_quack: function make_quack(key) {
+                        var _this2 = this;
+
+                        this.quacks.push(key);
+                        setTimeout(function () {
+                            _this2.quacks.shift();
+                        }, 400);
+                    }
+                }
             }, 'body');
         }
     };
