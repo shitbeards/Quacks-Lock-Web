@@ -1,13 +1,13 @@
 import 'seedrandom'
 
-function random(max) {
-    return Math.round(Math.random() * max)
+function random(list) {
+    return list[Math.floor(Math.random()*list.length)]
 }
 
 export function hatch(quack_code, skins=[], quacks=[]) {
     Math.seedrandom(quack_code)  // Seed Math.random() for deterministic values
-    const skin  =  skins[random( skins.length - 1)]
-    const quack = quacks[random(quacks.length - 1)]
+    const skin  = random(skins)
+    const quack = random(quacks)
     Math.seedrandom()  // Return Math.random() back to normal
     return [skin, quack]
 }
