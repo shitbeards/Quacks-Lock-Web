@@ -1,0 +1,29 @@
+{
+  "name": "quacks-lock",
+  "version": "1.0.0",
+  "description": "Press quack to continue.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "http-server -p 8080 built/",
+    "dev": "http-server -p 8080"
+  },
+  "author": "shitbeards",
+  "license": "MIT",
+  "jspm": {
+    "dependencies": {
+      "css": "github:systemjs/plugin-css@^0.1.19",
+      "font-awesome": "npm:font-awesome@^4.4.0",
+      "text": "github:systemjs/plugin-text@^0.0.3",
+      "uglifyjs": "npm:uglifyjs@^2.4.10",
+      "vue": "npm:vue@^1.0.7",
+      "vue-router": "npm:vue-router@^0.7.5"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "clean-css": "npm:clean-css@^3.4.7",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}
