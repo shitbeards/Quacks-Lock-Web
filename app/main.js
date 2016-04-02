@@ -22,7 +22,7 @@ router.start({
             loading: true,
             ducks: [],
             hatch: null,
-            count: null
+            count: null,
         }
     },
     computed: {
@@ -42,9 +42,9 @@ router.start({
         this.ws.onopen = (evt) => {
         }
         this.ws.onmessage = (evt) => {
-            var data = JSON.parse(evt.data);
-            this.make_quack(data.Key);
-            this.count = data.Quacks;
+            var data = JSON.parse(evt.data)
+            this.make_quack(data.Key)
+            this.count = data.Quacks
         }
         this.ws.onclose = (evt) => {
         }
@@ -52,6 +52,9 @@ router.start({
         this.loading = false
     },
     methods: {
+        tap_quack() {
+            this.ws.send('!')
+        },
         send_quack(evt){
             let x = evt.code.split('Key')
             if(x.length > 1) this.ws.send(x[1])
