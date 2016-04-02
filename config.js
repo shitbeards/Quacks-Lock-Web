@@ -25,6 +25,7 @@ System.config({
     "uglifyjs": "npm:uglifyjs@2.4.10",
     "vue": "npm:vue@1.0.20",
     "vue-router": "npm:vue-router@0.7.11",
+    "vue-touch": "npm:vue-touch@1.0.2",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -271,6 +272,9 @@ System.config({
     "npm:graceful-readlink@1.0.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2"
     },
+    "npm:hammerjs@2.0.6": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:hash.js@1.0.3": {
       "inherits": "npm:inherits@2.0.1"
     },
@@ -415,6 +419,9 @@ System.config({
     },
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"
+    },
+    "npm:vue-touch@1.0.2": {
+      "hammerjs": "npm:hammerjs@2.0.6"
     },
     "npm:vue@1.0.20": {
       "envify": "npm:envify@3.4.0",
