@@ -29,7 +29,8 @@
             <template v-for="(index, duck) in ducks" track-by="$index">
 				<div class="quack" :style="{top: duck.position.y, left: duck.position.x}">
 					<duck
-                        >
+                        :skin="duck.skin"
+                        :key="duck.key">
                     </duck>
 					<h1>{{ duck.key }}</h1>
 				</div>

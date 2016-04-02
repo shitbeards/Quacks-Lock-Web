@@ -6,6 +6,8 @@ import {ws_url} from 'consts.js'
 import {incubator} from 'app/utils/incubator'
 
 import duck from 'app/components/duck/duck'
+import skins from 'resources/skins/skins'
+
 
 function randomX(){
     return Math.floor( Math.random() * (window.innerWidth-30) ) + 'px'
@@ -33,7 +35,7 @@ router.start({
         window.app = this
 
         const quacks = document.getElementsByTagName("audio")
-        this.hatch   = incubator([], quacks)
+        this.hatch   = incubator(skins, quacks)
 
         //Set up websocket
         this.ws = new WebSocket(ws_url)

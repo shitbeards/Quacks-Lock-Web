@@ -1,15 +1,14 @@
 import './duck.css!'
 import Vue from 'vue'
 
-import ducks from './ducks/ducks'
-
 export default Vue.extend({
+    props: ['skin', 'key'],
     data(){
         return {
 
         }
     },
     created() {
-        this.$options.template = ducks[Math.floor(Math.random()*ducks.length)]
+        this.$options.template = this.skin
     },
 })
