@@ -8,6 +8,10 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" href="favicon.png">
+
+        <!-- fonts -->
+        <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 
 		<!-- main css -->
 		<link rel="stylesheet" href="loading.css" />
@@ -44,11 +48,17 @@
 		<div id="quacks-lock" class="main" v-cloak>
             <template v-for="(index, duck) in ducks" track-by="$index">
 				<div class="quack" :style="{top: duck.position.y, left: duck.position.x}">
-					<duck
-                        :skin="duck.skin"
-                        :key="duck.key">
-                    </duck>
-					<h1>{{ duck.key }}</h1>
+					<span class="key">
+                        <div class="background">
+                            <svg version="1.1" viewBox="-3 -3 286 246" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                            	<g id="layer1">
+                            		<path d="M30 10 L50 10 L50 20 L30 20 Z M20 20 L30 20 L30 30 L20 30 Z M10 30 L20 30 L20 50 L10 50 Z M0 50 L10 50 L10 160 L0 160 Z M50 0 L230 0 L230 10 L50 10 Z M270 50 L280 50 L280 160 L270 160 Z M230 10 L250 10 L250 20 L230 20 Z M250 20 L260 20 L260 30 L250 30 Z M260 30 L270 30 L270 50 L260 50 Z M30 190 L50 190 L50 200 L30 200 Z M20 180 L30 180 L30 190 L20 190 Z M10 160 L20 160 L20 180 L10 180 Z M50 200 L210 200 L210 210 L50 210 Z M260 160 L270 160 L270 180 L260 180 Z M250 180 L260 180 L260 200 L250 200 Z M240 200 L250 200 L250 230 L240 230 Z M210 210 L220 210 L220 220 L210 220 Z M220 220 L230 220 L230 230 L220 230 Z M230 230 L240 230 L240 240 L230 240 Z " stroke="#000000" stroke-opacity="1" stroke-width="1" fill="#000000" />
+                            	</g>
+                            </svg>
+                        </div>
+                        <div class="value">{{ duck.key }}</div>
+                    </span>
+                    <span class="duck">{{{ duck.skin }}}</span>
 				</div>
 			</template>
 		</div>

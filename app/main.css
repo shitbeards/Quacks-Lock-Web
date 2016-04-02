@@ -1,17 +1,62 @@
 html, body {
-    position: relative;
     width: 100%;
     height: 100%;
     margin: 0;
+
+    font-family: 'VT323', monospace;
+}
+
+#quacks-lock {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    box-sizing: border-box;
+    padding: 100px;
 }
 
 .quack {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    top: 50%;
+    left: 50%;
+
+    font-size: 0;
+    white-space: nowrap;
 }
 
-.quack
-h1 {
-    margin: 0;
+.quack .key,
+.quack .duck {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    height: 40px;
+}
+
+.quack .duck {
+    width: 80px;
+    height: 80px;
+}
+
+.quack .key
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.quack .key
+.background svg {
+    width: 100%;
+    height: 100%;
+}
+
+.quack .key
+.value {
+    font-size: 25px;
+    line-height: 35px;
+    text-align: center;
 }

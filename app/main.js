@@ -5,7 +5,6 @@ import router from './router'
 import {ws_url} from 'consts.js'
 import {incubator} from 'app/utils/incubator'
 
-import duck from 'app/components/duck/duck'
 import skins from 'resources/skins/skins'
 
 
@@ -79,8 +78,5 @@ router.start({
                 this.ducks.shift()
             }, 400)
         },
-    },
-    components: {
-        duck,
     },
 }, 'body')
