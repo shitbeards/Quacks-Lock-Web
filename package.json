@@ -14,6 +14,7 @@
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.19",
       "font-awesome": "npm:font-awesome@^4.4.0",
+      "seedrandom": "npm:seedrandom@^2.4.2",
       "text": "github:systemjs/plugin-text@^0.0.3",
       "uglifyjs": "npm:uglifyjs@^2.4.10",
       "vue": "npm:vue@^1.0.7",

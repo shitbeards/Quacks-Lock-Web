@@ -1,0 +1,1 @@
+module.exports = require("npm:seedrandom@2.4.2/index");
