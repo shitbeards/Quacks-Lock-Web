@@ -13,7 +13,7 @@ html, body {
     overflow: hidden;
 
     box-sizing: border-box;
-    padding: 100px;
+    padding: 30px;
 }
 
 .quack {
@@ -59,4 +59,11 @@ html, body {
     font-size: 25px;
     line-height: 35px;
     text-align: center;
+}
+
+.counter {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 30px;
 }

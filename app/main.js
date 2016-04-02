@@ -9,11 +9,11 @@ import skins from 'resources/skins/skins'
 
 
 function randomX(){
-    return Math.floor( Math.random() * (window.innerWidth-30) ) + 'px'
+    return Math.floor( Math.random() * (window.innerWidth-180) ) + 'px'
 }
 
 function randomY(){
-    return Math.floor( Math.random() * (window.innerHeight-30) ) + 'px'
+    return Math.floor( Math.random() * (window.innerHeight-140) ) + 'px'
 }
 
 router.start({
