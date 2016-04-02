@@ -1,7 +1,7 @@
 import 'seedrandom'
 
 function random(max) {
-    Math.round(Math.random() * max)
+    return Math.round(Math.random() * max)
 }
 
 export function hatch(quack_code, skins=[], quacks=[]) {
