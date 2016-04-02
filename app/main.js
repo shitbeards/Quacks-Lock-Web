@@ -22,6 +22,7 @@ router.start({
             loading: true,
             ducks: [],
             hatch: null,
+            count: null
         }
     },
     computed: {
@@ -39,13 +40,13 @@ router.start({
         //Set up websocket
         this.ws = new WebSocket(ws_url)
         this.ws.onopen = (evt) => {
-            console.log('hello')
         }
         this.ws.onmessage = (evt) => {
-            this.make_quack(evt.data)
+            var data = JSON.parse(evt.data);
+            this.make_quack(data.Key);
+            this.count = data.Quacks;
         }
         this.ws.onclose = (evt) => {
-            console.log('Goodbye')
         }
 
         this.loading = false
