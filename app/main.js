@@ -6,6 +6,14 @@ import {ws_url} from 'consts.js'
 
 import duck from 'app/components/duck/duck';
 
+function randomX(){
+    return Math.floor( Math.random() * (window.innerWidth-30) ) + 'px'
+}
+
+function randomY(){
+    return Math.floor( Math.random() * (window.innerHeight-30) ) + 'px'
+}
+
 router.start({
     data() {
         return {
@@ -54,8 +62,11 @@ router.start({
             } else {
                 test.play()
             }
-
-            this.quacks.push(key);
+            this.quacks.push({
+                key: key,
+                x: randomX(),
+                y: randomY()
+            });
             setTimeout( () => {
                 this.quacks.shift();
             }, 400);

@@ -1,0 +1,17 @@
+html, body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.quack {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+.quack
+h1 {
+    margin: 0;
+}
