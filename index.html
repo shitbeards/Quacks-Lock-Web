@@ -25,6 +25,22 @@
 
 	</head>
 	<body v-on:keydown="send_quack($event)">
+
+        <div class="loading" v-cloak>
+        	<div class="footprint pad_1"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_2"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_3"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_4"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_5"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_6"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_7"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_8"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_9"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_10"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_11"><img src="resources/pad.png"></div>
+        	<div class="footprint pad_12"><img src="resources/pad.png"></div>
+        </div>
+
 		<div id="quacks-lock" class="main" v-cloak>
             <template v-for="(index, duck) in ducks" track-by="$index">
 				<div class="quack" :style="{top: duck.position.y, left: duck.position.x}">

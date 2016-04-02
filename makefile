@@ -6,6 +6,7 @@ build:
 	jspm bundle-sfx --minify app/main built/app.min.js
 	node_modules/.bin/html-dist index.html --remove-all --minify --insert app.min.js -o built/index.html
 	cp -r resources* built/
+	cp loading.css built/loading.css
 	- rm consts.js
 	echo "export const debug = true\nexport const ws_url = 'wss://quacks-lock.herokuapp.com/ws'\n" > consts.js
 deploy:
