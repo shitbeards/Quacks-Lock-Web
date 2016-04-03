@@ -52,15 +52,19 @@ router.start({
         this.loading = false
     },
     methods: {
+        send(key){
+            if(this.ws.readyState === 1) this.ws.send(key)
+            else this.make_quack(key)
+        },
         tap_quack() {
-            this.ws.send('!')
+            this.send('!')
         },
         send_quack(evt) {
             let x = evt.code.split('Key')
-            if(x.length > 1) this.ws.send(x[1])
+            if(x.length > 1) this.send(x[1])
             else {
                 x = evt.code.split('Digit')
-                if(x.length > 1) this.ws.send(x[1])
+                if(x.length > 1) this.send(x[1])
             }
         },
         make_quack(key) {
